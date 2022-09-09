@@ -1,29 +1,31 @@
-# vuejs_project
+# Todo list
 
-This template should help get you started developing with Vue 3 in Vite.
+J'ai voulu réaliser ici une todo list en utilisant l'API demandée.
+Vous retrouvez dans le dossier services, le fichier todoServicees.js. C'est ici que les appels API ce font. 
+Puisque l'API est une API fake, je me suis permis de réaliser le CRUD grâce au store pour avoir les différentes interactions. 
 
-## Recommended IDE Setup
+Vous retrouverez aussi différentes animations notamment sur l'apparition du titre ainsi que sur les boutons. 
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+En ce qui concerne l'accessibilité, j'ai fait en sorte d'avoir des aria-label sur mes boutons etc... pour avoir une bonne base. 
 
-## Customize configuration
+J'ai aussi fait en sorte que le site soit responsive. 
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Merci pour l'opportunité ! 
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
+## Prérequis
 
 ```sh
-npm run dev
+Node.js
+Vue.js
 ```
 
-### Compile and Minify for Production
+## Installation du projet
 
 ```sh
-npm run build
+npm install 
+npm run dev 
+
+Enjoy!
 ```
+
+

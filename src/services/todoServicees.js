@@ -17,6 +17,7 @@ export function deleteTodo(id) {
 export function postTodo() {
     let todo = {
         userId: 1,
+        /* Je génère un faux id avec le math.random et math.floor */
         id: Math.floor(Math.random() * 1000),
         title: this.toPush.title,
         completed: this.toPush.completed,

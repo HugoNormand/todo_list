@@ -3,7 +3,6 @@
     <div class="block-title">
         <h1>Bienvenue sur ma Todo List !</h1>
     </div>
-   <!--  <p class="explain-project">J'ai utilisé le store pour faire en sorte d'avoir la "fonctionnalité" comme si l'API faisait vraiment un get, update etc... Vous retrouverez dans le fichier "todoServices" les opérations CRUD, merci pour l'opportunité ! :)</p> -->
 </head>
 </template>
 
@@ -71,17 +70,4 @@
     from { border-right: 2px }
     to { border-right: 0px;}
     }
-
-    .explain-project {
-        position: absolute;
-        bottom: 145px;
-        left: 80px;
-        width: 250px;
-        font-size: 20px;
-        transform: rotate(-35deg);
-        color: $tertiary-color;
-        font-family: $font;
-        z-index: 0;
-    }
-
 </style>

@@ -17,6 +17,7 @@ export default createStore({
         }
     },
     mutations: {
+        /* les méthodes utilisées dans le store pour "fake" l'API, les mutations ici permettent d'avoir les fonctionnalités */
         addTodos(state, todos) {
             state.todos = todos
         },

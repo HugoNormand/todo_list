@@ -6,25 +6,25 @@
     </div>
     <main class="todo">
       <section v-for="todo in todos" class="todo__task">
-        <button @click="doneTaskAnimation(todo)" class="todo__task__btn">
+        <button @click="doneTaskAnimation(todo)" class="todo__task__btn" aria-label="check task button">
           <i class="fa-solid fa-circle-check todo__task__btn--notDone"></i>
         </button>
         <p v-if="todo.title" :class="{ done: todo.completed }" id="todoTitle">{{ todo.title }}</p>
         <form v-else class="todo__task__updateForm">
-          <label for="">
-            <input type="text" v-model="this.newTodoUpdate.title" class="todo__task__input">
+          <label for="modifyTask">
+            <input type="text" v-model="this.newTodoUpdate.title" class="todo__task__input" id="modifyTask" placeholder="Modify your task here">
           </label>
-          <button @click.prevent="putTodo(todo)" class="todo__task__btn"><i class="fa-solid fa-arrow-up"></i></button>
+          <button @click.prevent="putTodo(todo)" class="todo__task__btn" aria-label="validate task modification button"><i class="fa-solid fa-arrow-up"></i></button>
         </form>
-        <button @click="deleteTodo(todo.id)" class="todo__task__btn"><i class="fa-solid fa-trash"></i></button>
-        <button @click="Toggle(todo)" class="todo__task__btn"><i class="fa-solid fa-arrows-rotate"></i></button>
+        <button @click="deleteTodo(todo.id)" class="todo__task__btn" aria-label="delete task button"><i class="fa-solid fa-trash"></i></button>
+        <button @click="Toggle(todo)" class="todo__task__btn" aria-label="button for modify task"><i class="fa-solid fa-arrows-rotate"></i></button>
       </section>  
     </main>
     <form class="form-add">
-      <label for="" class="form-add__label">
-        <input type="text" v-model="this.toPush.title" class="form-add__label__input">
+      <label for="newTask" class="form-add__label">
+        <input type="text" v-model="this.toPush.title" class="form-add__label__input" id="newTask" placeholder="Enter a new task">
       </label>
-      <button @click.prevent="postTodo" class="todo__task__btn"><i class="fa-solid fa-circle-arrow-up form-add__btn"></i></button>
+      <button @click.prevent="postTodo" class="todo__task__btn" aria-label="post a new task button"><i class="fa-solid fa-circle-arrow-up form-add__btn"></i></button>
     </form>
   </div>
   <i class="fa-solid fa-arrow-down scroll-arrow"></i>
@@ -68,6 +68,7 @@ export default {
       todo.completed = !todo.completed
     },
     Toggle(todo) {
+      /* le but aurait été ici d'avoir dans notre API un "update: false" et de pouvoir jouer avec pour afficher le form update */
       todo.title = !todo.title
     },
   }
@@ -143,6 +144,7 @@ export default {
         }
         &__input {
           color: $quaternaire-color;
+          border-radius: 5px;
           transition: all 0.3s 
         }
         &__btn {
