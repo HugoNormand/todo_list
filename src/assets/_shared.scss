@@ -1,0 +1,23 @@
+$primary-color: #202124;
+$secondary-color: #303134;
+$tertiary-color: #90acce;
+$quaternaire-color: #508fdb;
+
+$font: 'Sora';
+
+.flexbox {
+    display: flex;
+    align-items: center;
+}
+
+.blockSize {
+    width: 30%;
+    padding: 20px;
+}
+
+.btnStyle {
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
