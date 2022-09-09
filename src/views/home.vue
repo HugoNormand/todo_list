@@ -1,14 +1,16 @@
 <template>
   <Header />
   <div class="block-todo">
-    <div class="today-todo"><h2>Today</h2></div>
+    <div class="today-todo">
+      <h2>Today</h2>
+    </div>
     <main class="todo">
       <section v-for="todo in todos" class="todo__task">
         <button @click="doneTaskAnimation(todo)" class="todo__task__btn">
           <i class="fa-solid fa-circle-check todo__task__btn--notDone"></i>
         </button>
         <p v-if="todo.title" :class="{ done: todo.completed }" id="todoTitle">{{ todo.title }}</p>
-        <form v-else>
+        <form v-else class="todo__task__updateForm">
           <label for="">
             <input type="text" v-model="this.newTodoUpdate.title" class="todo__task__input">
           </label>
@@ -19,10 +21,10 @@
       </section>  
     </main>
     <form class="form-add">
-      <label for="">
-        <input type="text" v-model="this.toPush.title">
+      <label for="" class="form-add__label">
+        <input type="text" v-model="this.toPush.title" class="form-add__label__input">
       </label>
-      <button @click.prevent="postTodo">Send</button>
+      <button @click.prevent="postTodo" class="todo__task__btn"><i class="fa-solid fa-circle-arrow-up form-add__btn"></i></button>
     </form>
   </div>
   <i class="fa-solid fa-arrow-down scroll-arrow"></i>
@@ -83,28 +85,42 @@ export default {
     justify-content: center;
     flex-direction: column;
     height: 100vh;
+    @media (max-width: 500px) {
+        margin-top: 0px;
+        justify-content: normal;
+        height: 100%;
+    }
   }
 
   .today-todo {
     @extend .flexbox;
     @extend .blockSize;
+    @extend .queriesTodo;
     font-size: 20px;
     font-weight: bold;
     background-color: $primary-color;
     border-radius: 15px 15px 0px 0px;
-    z-index: 10000;
+    @media (max-width: 500px) {
+        padding: 10px 0px;
+        border-radius: 0px
+    }
   }
 
   .todo {
-    background-color: $primary-color;
     @extend .flexbox;
     @extend .blockSize;
+    @extend .queriesTodo;
+    background-color: $primary-color;
     flex-direction: column;
     height: 500px;
     overflow: scroll;
     :hover {
       background-color: $secondary-color;
-      }
+    }
+    @media (max-width: 500px) {
+       padding: 0;
+       height: 100vh;
+    } 
       &__task {
       width: 90%;
       height: 90px;
@@ -114,6 +130,9 @@ export default {
       border-radius: 30px;
       display: flex;
       justify-content: flex-start;
+      @media (max-width: 500px) {
+       width: 80%;
+      } 
         p {
           width: 70%;
           margin-left: 8px;
@@ -141,6 +160,11 @@ export default {
         button:nth-child(3) {
           margin-left: auto;
         }
+        &__updateForm {
+          @media (max-width: 281px) {
+            margin-top: 15px;
+          } 
+        }
       }
   }
 
@@ -152,10 +176,37 @@ export default {
   .form-add {
     @extend .flexbox;
     @extend .blockSize;
-    justify-content: center;
+    @extend .queriesTodo;
+    @media (max-width: 500px) {
+       padding: 10px 0px;
+       border-radius: 0px;
+    } 
+    justify-content: space-evenly;
     background-color: $primary-color;
     border-radius: 0px 0px 15px 15px;
     border: solid 1px white;
+    &__label {
+      width: 80%;
+      :hover {
+          background-color: $secondary-color;
+          transition: all 0.3s;
+        }
+      :focus {
+          outline: none;
+      }  
+      &__input {
+        width: 100%;
+        height: 30px;
+        color: #fff;
+        background: transparent;
+        border-style: none;
+        border-radius: 15px;
+        border: solid 1px $tertiary-color;
+      }
+    }
+    &__btn {
+        font-size: 25px;
+      }
   }
 
   .scroll-arrow {
@@ -163,6 +214,11 @@ export default {
     color: $tertiary-color;
     position: fixed;
     bottom: 10px;
-    right: 14px
+    right: 14px;
+    transition: all 0.3s;
+    @media (max-width: 500px) {
+      transform: scale(0);
+      transform: all 0.3s;
+    }
   }
 </style>

@@ -21,3 +21,19 @@ $font: 'Sora';
     cursor: pointer;
     background-color: transparent;
 }
+
+.queriesTodo {
+    @media (max-width: 1150px) {
+        width: 40%;
+    }
+    @media (max-width: 900px) {
+        width: 50%;
+    }
+    @media (max-width: 700px) {
+        width: 60%;
+    }
+    @media (max-width: 500px) {
+        width: 100%;
+       
+    }
+}
